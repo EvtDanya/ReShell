@@ -15,6 +15,7 @@ def server() -> None:
         client.send(command.encode())
         
         if command.lower() == 'exit':
+            client.send('exit'.encode())
             break
         
         result = client.recv(1024).decode()

