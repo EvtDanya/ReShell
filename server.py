@@ -14,6 +14,9 @@ def server() -> None:
         command = str(input('Input command >> '))
         client.send(command.encode())
         
+        if command.startswith('cd'):
+            continue
+        
         if command.lower() == 'exit':
             client.send('exit'.encode())
             break
